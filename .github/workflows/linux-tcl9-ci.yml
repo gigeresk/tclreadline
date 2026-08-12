@@ -1,0 +1,28 @@
+name: Linux Tcl 9 CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-26.04
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install dependencies
+      run: |
+        sudo apt-get update -qq
+        sudo apt-get install -y tcl9.0-dev tk9.0-dev libreadline-dev expect autoconf automake libtool
+    - name: configure
+      run: |
+        autoreconf -vif
+        /usr/bin/libtoolize --install
+        ./configure --with-tcl=/usr/lib/tcl9.0 --with-tcl-includes=/usr/include/tcl9.0 --with-tk=/usr/lib/tk9.0
+    - name: make
+      run: make
+    - name: install
+      run: sudo make install
