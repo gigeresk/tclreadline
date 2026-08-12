@@ -1,5 +1,4 @@
 ![Linux CI](https://github.com/flightaware/tclreadline/workflows/Linux%20CI/badge.svg)
-![Linux Tcl 9 CI](https://github.com/flightaware/tclreadline/workflows/Linux%20Tcl%209%20CI/badge.svg)
 ![Mac CI](https://github.com/flightaware/tclreadline/workflows/Mac%20CI/badge.svg)
 
 # tclreadline -- gnu readline for tcl
